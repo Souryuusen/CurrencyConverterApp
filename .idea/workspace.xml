@@ -4,16 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d612bc6f-9cc3-4323-8a5b-8b67dd03243b" name="Changes" comment="2022-12-13&#10;     - Base Version Of Project Added">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CurrencyConverterApp.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/edu/dsoft/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/edu/dsoft/Rate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/edu/dsoft/gui/AppWindow.java" afterDir="false" />
+    <list default="true" id="d612bc6f-9cc3-4323-8a5b-8b67dd03243b" name="Changes" comment="- Created Data Access Object For Rates&#10;- Created Currency Rate (Rate) and Currency Pair (Pair)">
+      <change afterPath="$PROJECT_DIR$/src/edu/dsoft/Converter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/dsoft/Pair.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/dsoft/RateDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/dsoft/Rate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/dsoft/Rate.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,14 +41,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/Grzegorz Lach/IdeaProjects/CurrencyConverterApp/src/edu/dsoft/gui",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Grzegorz Lach/IdeaProjects/CurrencyConverterApp/src/edu/dsoft/gui&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Grzegorz Lach\IdeaProjects\CurrencyConverterApp\src\edu\dsoft\gui" />
@@ -72,10 +68,27 @@
       <option name="presentableId" value="Default" />
       <updated>1670922462380</updated>
     </task>
+    <task id="LOCAL-00001" summary="- Added Base URL handling">
+      <created>1670928303755</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1670928303755</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="2022-12-13&#10;     - Base Version Of Project Added" />
-    <option name="LAST_COMMIT_MESSAGE" value="2022-12-13&#10;     - Base Version Of Project Added" />
+    <MESSAGE value="- Added Base URL handling" />
+    <MESSAGE value="- Created Data Access Object For Rates&#10;- Created Currency Rate (Rate) and Currency Pair (Pair)" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Created Data Access Object For Rates&#10;- Created Currency Rate (Rate) and Currency Pair (Pair)" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="com.sun.org.apache.xerces.internal.dom.DeferredElementImpl" memberName="attributes" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>
