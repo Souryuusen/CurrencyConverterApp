@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="edu.dsoft.gui.CurrencySelectionPanel">
+  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="0">
+    <constraints>
+      <xy x="20" y="20" width="818" height="40"/>
+    </constraints>
+    <properties>
+      <background color="-12566207"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <component id="cf19d" class="javax.swing.JLabel">
+        <constraints/>
+        <properties>
+          <text value="Waluta 1"/>
+        </properties>
+      </component>
+      <component id="7a363" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
+        <constraints/>
+        <properties>
+          <model/>
+          <preferredSize width="100" height="30"/>
+        </properties>
+      </component>
+      <component id="e78c3" class="javax.swing.JLabel">
+        <constraints/>
+        <properties>
+          <text value="Waluta 2"/>
+        </properties>
+      </component>
+      <component id="44562" class="javax.swing.JComboBox" binding="comboBox2" default-binding="true">
+        <constraints/>
+        <properties>
+          <preferredSize width="100" height="30"/>
+        </properties>
+      </component>
+      <component id="3ba05" class="javax.swing.JButton" binding="pobierzDaneButton" default-binding="true">
+        <constraints/>
+        <properties>
+          <text value="Pobierz Dane"/>
+        </properties>
+      </component>
+      <component id="db205" class="javax.swing.JLabel">
+        <constraints/>
+        <properties>
+          <text value="Wybrano Parę Walut:"/>
+        </properties>
+      </component>
+      <component id="5318f" class="javax.swing.JTextField" binding="PLNEURTextField" default-binding="true">
+        <constraints/>
+        <properties>
+          <autoscrolls value="false"/>
+          <editable value="false"/>
+          <enabled value="false"/>
+          <focusable value="false"/>
+          <minimumSize width="100" height="30"/>
+          <preferredSize width="100" height="30"/>
+          <text value="PLN/EUR"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>
