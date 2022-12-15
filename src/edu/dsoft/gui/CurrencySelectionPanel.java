@@ -5,67 +5,79 @@ import edu.dsoft.Pair;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
+import javax.swing.text.JTextComponent;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
+import java.awt.event.KeyEvent;
+import java.text.NumberFormat;
 
 public class CurrencySelectionPanel {
     protected JPanel selectionPanel;
     private JLabel labelFirstCurrency;
-    private JComboBox comboFirstCurrency;
+    private JComboBox<String> comboFirstCurrency;
     private JLabel labelSecondCurrency;
-    private JComboBox comboSecondCurrency;
+    private JComboBox<String> comboSecondCurrency;
     private JButton btnGetData;
     private JPanel pairSelectionPanel;
     private JPanel currenSelectedPanel;
     private JTextField labelCurrentPair;
+    private JLabel labelCurrentAsk;
+    private JTextField fieldCurrentAsk;
+    private JLabel labelCurrentBid;
+    private JTextField fieldCurrentBid;
 
     String[] currencyArray = {"USD", "EUR", "PLN", "JPY"};
 
     private String firstCode, secondCode;
 
     public CurrencySelectionPanel() {
-        btnGetData.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (firstCode != null && secondCode != null) {
-                    ConverterController.getInstance().createCurrencyPair(firstCode, secondCode);
-                } else {
-                    // TODO: 14.12.2022 Dodanie obsługi błędów związanych z brakiem wyboru waluty
-                }
-            }
-        });
+        // Combo Items Fill
         addAllCodes(comboFirstCurrency, currencyArray);
         addAllCodes(comboSecondCurrency, currencyArray);
-        comboFirstCurrency.addItemListener(new ItemListener() {
-            @Override
-            public void itemStateChanged(ItemEvent e) {
-                if (e.getStateChange() == ItemEvent.SELECTED) {
-                    firstCode = (String) (e.getItem());
-                }
+        // Initial Values Of Currency Codes
+        this.firstCode = "USD";
+        this.secondCode = "USD";
+        // Creation Of GUI Listeners
+        btnGetData.addActionListener((ActionEvent e) -> {
+            if (firstCode != null && secondCode != null) {
+                ConverterController.getInstance().createCurrencyPair(firstCode, secondCode);
+            } else {
+                // TODO: 14.12.2022 Dodanie Obsługi błędów związanych z brakiem wyboru waluty
+                System.err.println("Something Went Wrong With Codes Assignments");
             }
         });
-        comboSecondCurrency.addItemListener(new ItemListener() {
-            @Override
-            public void itemStateChanged(ItemEvent e) {
-                if (e.getStateChange() == ItemEvent.SELECTED) {
-                    secondCode = (String) (e.getItem());
-                }
+
+        comboFirstCurrency.addItemListener((ItemEvent e) -> {
+            if (e.getStateChange() == ItemEvent.SELECTED) {
+                firstCode = (String) (e.getItem());
             }
         });
+
+        comboSecondCurrency.addItemListener((ItemEvent e) -> {
+            if (e.getStateChange() == ItemEvent.SELECTED) {
+                secondCode = (String) (e.getItem());
+            }
+        });
+
     }
 
-    private void addAllCodes(JComboBox box, String[] options) {
+    private void addAllCodes(JComboBox<String> box, String[] options) {
         for (String s : options) {
-            box.addItem(s);
+            if (box != null) {
+                box.addItem(s);
+            }
         }
     }
 
     public void setCurrentSelectedPair(Pair p) {
-        System.out.println("Para:\t" + p.toString());
         labelCurrentPair.setText(p.getPairName());
+
+        NumberFormat format = NumberFormat.getInstance();
+        format.setMinimumFractionDigits(4);
+        format.setMaximumFractionDigits(4);
+        fieldCurrentAsk.setText(format.format(p.getPairExchangeRateAsk()));
+        fieldCurrentBid.setText(format.format(p.getPairExchangeRateBid()));
     }
 
     protected JPanel getSelectionPanel() {
@@ -88,52 +100,31 @@ public class CurrencySelectionPanel {
      */
     private void $$$setupUI$$$() {
         selectionPanel = new JPanel();
-        selectionPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 0));
+        selectionPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 7, 0));
         selectionPanel.setMaximumSize(new Dimension(600, 40));
         selectionPanel.setMinimumSize(new Dimension(600, 40));
         selectionPanel.setPreferredSize(new Dimension(600, 40));
         pairSelectionPanel = new JPanel();
-        pairSelectionPanel.setLayout(new GridBagLayout());
+        pairSelectionPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 5));
         selectionPanel.add(pairSelectionPanel);
         pairSelectionPanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEmptyBorder(0, 0, 0, 5), null, TitledBorder.CENTER, TitledBorder.DEFAULT_POSITION, null, null));
         labelFirstCurrency = new JLabel();
         labelFirstCurrency.setAlignmentX(0.5f);
         labelFirstCurrency.setText("Waluta 1");
-        GridBagConstraints gbc;
-        gbc = new GridBagConstraints();
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        gbc.insets = new Insets(0, 5, 0, 5);
-        pairSelectionPanel.add(labelFirstCurrency, gbc);
+        pairSelectionPanel.add(labelFirstCurrency);
         comboFirstCurrency = new JComboBox();
-        gbc = new GridBagConstraints();
-        gbc.gridx = 1;
-        gbc.gridy = 0;
-        gbc.insets = new Insets(0, 5, 0, 5);
-        pairSelectionPanel.add(comboFirstCurrency, gbc);
+        pairSelectionPanel.add(comboFirstCurrency);
         labelSecondCurrency = new JLabel();
         labelSecondCurrency.setText("Waluta 2");
-        gbc = new GridBagConstraints();
-        gbc.gridx = 2;
-        gbc.gridy = 0;
-        gbc.insets = new Insets(0, 5, 0, 5);
-        pairSelectionPanel.add(labelSecondCurrency, gbc);
+        pairSelectionPanel.add(labelSecondCurrency);
         comboSecondCurrency = new JComboBox();
-        gbc = new GridBagConstraints();
-        gbc.gridx = 3;
-        gbc.gridy = 0;
-        gbc.insets = new Insets(0, 5, 0, 5);
-        pairSelectionPanel.add(comboSecondCurrency, gbc);
+        pairSelectionPanel.add(comboSecondCurrency);
         btnGetData = new JButton();
         btnGetData.setHideActionText(false);
         btnGetData.setText("Pobierz Dane");
-        gbc = new GridBagConstraints();
-        gbc.gridx = 4;
-        gbc.gridy = 0;
-        gbc.insets = new Insets(0, 5, 0, 5);
-        pairSelectionPanel.add(btnGetData, gbc);
+        pairSelectionPanel.add(btnGetData);
         currenSelectedPanel = new JPanel();
-        currenSelectedPanel.setLayout(new FlowLayout(FlowLayout.RIGHT, 5, 0));
+        currenSelectedPanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         currenSelectedPanel.setAlignmentX(0.5f);
         currenSelectedPanel.setAlignmentY(0.5f);
         selectionPanel.add(currenSelectedPanel);
@@ -143,11 +134,7 @@ public class CurrencySelectionPanel {
         label1.setVerifyInputWhenFocusTarget(false);
         label1.setVerticalAlignment(0);
         label1.setVerticalTextPosition(0);
-        currenSelectedPanel.add(label1);
-        currentSelectedFieldPanel = new JPanel();
-        currentSelectedFieldPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-        currentSelectedFieldPanel.setPreferredSize(new Dimension(300, 40));
-        selectionPanel.add(currentSelectedFieldPanel);
+        currenSelectedPanel.add(label1, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         labelCurrentPair = new JTextField();
         labelCurrentPair.setColumns(7);
         labelCurrentPair.setEditable(false);
@@ -157,7 +144,33 @@ public class CurrencySelectionPanel {
         labelCurrentPair.setMinimumSize(new Dimension(150, 30));
         labelCurrentPair.setPreferredSize(new Dimension(83, 30));
         labelCurrentPair.setText("       ");
-        currentSelectedFieldPanel.add(labelCurrentPair);
+        selectionPanel.add(labelCurrentPair);
+        labelCurrentAsk = new JLabel();
+        labelCurrentAsk.setText("Ask:");
+        selectionPanel.add(labelCurrentAsk);
+        fieldCurrentAsk = new JTextField();
+        fieldCurrentAsk.setColumns(5);
+        fieldCurrentAsk.setEditable(false);
+        fieldCurrentAsk.setEnabled(true);
+        fieldCurrentAsk.setHorizontalAlignment(0);
+        fieldCurrentAsk.setMaximumSize(new Dimension(150, 30));
+        fieldCurrentAsk.setMinimumSize(new Dimension(150, 30));
+        fieldCurrentAsk.setPreferredSize(new Dimension(61, 30));
+        fieldCurrentAsk.setText("       ");
+        selectionPanel.add(fieldCurrentAsk);
+        labelCurrentBid = new JLabel();
+        labelCurrentBid.setText("Bid:");
+        selectionPanel.add(labelCurrentBid);
+        fieldCurrentBid = new JTextField();
+        fieldCurrentBid.setColumns(5);
+        fieldCurrentBid.setEditable(false);
+        fieldCurrentBid.setEnabled(true);
+        fieldCurrentBid.setHorizontalAlignment(0);
+        fieldCurrentBid.setMaximumSize(new Dimension(150, 30));
+        fieldCurrentBid.setMinimumSize(new Dimension(150, 30));
+        fieldCurrentBid.setPreferredSize(new Dimension(61, 30));
+        fieldCurrentBid.setText("       ");
+        selectionPanel.add(fieldCurrentBid);
     }
 
     /**

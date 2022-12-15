@@ -8,11 +8,6 @@ public class ConverterView {
 
     private ConverterWindow window;
 
-    public static void main(String[] args) {
-        instance = ConverterView.getInstance();
-        instance.createApplicationWindow();
-    }
-
     protected void createApplicationWindow() {
         window = ConverterWindow.getInstance();
     }

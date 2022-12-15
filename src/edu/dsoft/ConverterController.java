@@ -1,6 +1,5 @@
 package edu.dsoft;
 
-import edu.dsoft.gui.ConverterWindow;
 
 public class ConverterController {
 
@@ -15,16 +14,7 @@ public class ConverterController {
     public static void main(String[] args) {
         getInstance().viewInstance = ConverterView.getInstance();
         getInstance().viewInstance.createApplicationWindow();
-
         getInstance().modelInstance = ConverterModel.getInstance();
-
-        Rate r1 = new Rate("USD");
-        Rate r2 = new Rate("EUR");
-        System.out.println(r1.toString());
-        System.out.println(r2.toString());
-
-        Pair p = new Pair(r2, r1);
-        System.out.println(p.toString());
     }
 
     public void createCurrencyPair(String firstCode, String secondCode){

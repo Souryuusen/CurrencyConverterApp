@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d612bc6f-9cc3-4323-8a5b-8b67dd03243b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/edu/dsoft/ConverterModel.java" afterDir="false" />
+    <list default="true" id="d612bc6f-9cc3-4323-8a5b-8b67dd03243b" name="Changes" comment="- Created Main Currency Exchange View">
+      <change afterPath="$PROJECT_DIR$/src/edu/dsoft/gui/CurrencyExchangePanel.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/dsoft/gui/CurrencyExchangePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/dsoft/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/dsoft/ConverterView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/dsoft/Converter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/dsoft/ConverterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/dsoft/Pair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/dsoft/Pair.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/dsoft/gui/AppWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/dsoft/gui/ConverterWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/dsoft/ConverterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/dsoft/ConverterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/dsoft/ConverterView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/dsoft/ConverterView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/dsoft/gui/CurrencySelectionPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/dsoft/gui/CurrencySelectionPanel.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/dsoft/gui/CurrencySelectionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/dsoft/gui/CurrencySelectionPanel.java" afterDir="false" />
     </list>
@@ -39,22 +38,25 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectId" id="2IqwXa0GmGXjg1y1OgpyJ9xa3vl" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "TODO_SCOPE": "All Places",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "328",
-    "last_opened_file_path": "C:/Users/Grzegorz Lach/IdeaProjects/CurrencyConverterApp/src/edu/dsoft/gui",
-    "settings.editor.selected.configurable": "project.propGUI"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;TODO_SCOPE&quot;: &quot;All Places&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH&quot;: &quot;328&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Grzegorz Lach/IdeaProjects/CurrencyConverterApp/src/edu/dsoft/gui&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propGUI&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Grzegorz Lach\IdeaProjects\CurrencyConverterApp\src\edu\dsoft\gui" />
@@ -95,7 +97,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670936405725</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="- Added Basic GUI Version&#10;- Added methods for selection of currencies pairs and updating views">
+      <created>1671015350107</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1671015350107</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -103,7 +112,9 @@
     <MESSAGE value="- Added Base URL handling" />
     <MESSAGE value="- Created Data Access Object For Rates&#10;- Created Currency Rate (Rate) and Currency Pair (Pair)" />
     <MESSAGE value="- Added CurrencySelectionPanel Form" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Added CurrencySelectionPanel Form" />
+    <MESSAGE value="- Added Basic GUI Version&#10;- Added methods for selection of currencies pairs and updating views" />
+    <MESSAGE value="- Created Main Currency Exchange View" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Created Main Currency Exchange View" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
