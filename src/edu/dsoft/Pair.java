@@ -52,6 +52,14 @@ public class Pair {
         return pairExchangeRateBid;
     }
 
+    public BigDecimal exchangeCurrencyAsk(BigDecimal value) {
+        return value.multiply(pairExchangeRateAsk, MathContext.DECIMAL128);
+    }
+
+    public BigDecimal exchangeCurrencyBid(BigDecimal value) {
+        return  value.multiply(pairExchangeRateBid, MathContext.DECIMAL128);
+    }
+
     private void calculateExchangeRate(Rate firstRate, Rate secondRate) {
         // Exchange Pair Ask Value Calculation - Temporary Calculation 1 PLN = X Currency
         BigDecimal tempAsk1 = BigDecimal.valueOf(1.0000).divide(firstRate.getAskValue(), MathContext.DECIMAL128);

@@ -4,7 +4,7 @@ import org.w3c.dom.Document;
 
 import java.math.BigDecimal;
 
-public class Rate {
+public class Rate implements Cloneable{
 
     String currencyName;
     String currencyCode;
@@ -18,6 +18,13 @@ public class Rate {
 
         askValue = BigDecimal.valueOf(0);
         bidValue = BigDecimal.valueOf(0);
+    }
+
+    public Rate(Rate toCopy) {
+        this.currencyName = toCopy.getCurrencyName();
+        this.currencyCode = toCopy.getCurrencyCode();
+        this.askValue = toCopy.getAskValue();
+        this.bidValue = toCopy.getBidValue();
     }
 
     public Rate(String currencyName, String currencyCode, BigDecimal askValue, BigDecimal bidValue) {
@@ -41,7 +48,6 @@ public class Rate {
             this.bidValue = BigDecimal.valueOf(1.0000);
         }
     }
-
 
     public String getCurrencyName() {
         return currencyName;
@@ -82,5 +88,10 @@ public class Rate {
     @Override
     public String toString() {
         return currencyName.toUpperCase() + " " + currencyCode.toUpperCase() + "\n\tAsk:\t" + askValue + "\n\tBid:\t" + bidValue ;
+    }
+
+    @Override
+    protected Object clone(){
+        return new Rate(this);
     }
 }

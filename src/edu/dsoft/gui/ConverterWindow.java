@@ -10,33 +10,35 @@ public class ConverterWindow extends JFrame {
 
     private static ConverterWindow instance;
 
-    private final static int WINDOW_WIDTH = 600;
-    private final static int WINDOW_HEIGHT = 800;
+    private final static int WINDOW_WIDTH = 800;
+    private final static int WINDOW_HEIGHT = 600;
 
-    private CurrencySelectionPanel currencySelectionPanel;
+    private ExchangePanel exchangePanel;
 
     private ConverterWindow() {
         SwingUtilities.invokeLater(this::createGui);
     }
 
     private void createGui() {
-        currencySelectionPanel = new CurrencySelectionPanel();
+        exchangePanel = new ExchangePanel();
 
-        this.setSize(800,600);
-        this.setTitle("Test App");
+        this.setSize(WINDOW_WIDTH,WINDOW_HEIGHT);
+        this.setTitle("Kalkulator Walutowy v1.0");
         this.setResizable(false);
 
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setLayout(new BorderLayout());
 
-        this.add(currencySelectionPanel.getSelectionPanel(), BorderLayout.NORTH);
+//        this.add(currencySelectionPanel.getSelectionPanel(), BorderLayout.NORTH);
+        this.setContentPane(exchangePanel.getMainPanel());
 
+        this.pack();
         this.setVisible(true);
     }
 
     public void updateData() {
-        if(currencySelectionPanel != null) {
-            currencySelectionPanel.setCurrentSelectedPair(ConverterModel.getInstance().getCurrentPair());
+        if(exchangePanel != null) {
+            exchangePanel.setCurrentSelectedPair(ConverterModel.getInstance().getCurrentPair());
         }
     }
 
